@@ -1,0 +1,114 @@
+body{
+	font-family: "impact";
+}
+body section.entrada span.kum{
+	color: #7A8096;
+}
+body section.entrada span.l{
+	color: #DE8587;
+}
+body section.entrada span.i{
+	color: #D2C9BA;
+}
+body section.entrada span.n{
+	color: #7A8096;
+}
+body section.entrada span.kdois{
+	color: #E7D2F1;
+}
+body section.entrada span.pontointerrogacao{
+	color: #DE8587;
+}
+body section.entrada span.number{
+	color: #D2C9BA;
+	font-size: 7vw;
+}
+body section.entrada{
+	/*display: none;*/
+	text-align: center;
+	background: url(../img/screen.jpg);
+	background-size: 100% 100%;
+	height: 100vh;
+}
+body section.entrada h1{
+	padding: 20vw 0 20vw 0;	
+	font-size: 18vw;
+	font-weight: bold;
+	color: white;
+}
+body section.entrada ul p{
+	text-align: left;
+	margin: 3vw 0 3vw 9vw;
+	font-size: 6vw;
+	color: #393943;
+}
+body section.entrada p.botao a{
+	text-decoration: none;
+	font-size: 6vw;
+	color: #86A5AC;
+	background-color: #393943;
+	padding: 5vw;
+	border-radius: 5vw;
+}
+body section.entrada p.botao{
+	margin-top: 35vw;
+	padding-bottom: 24vw;
+}
+
+
+body section.jogo{
+	/*display: none;*/
+	background: url(../img/screen.jpg);
+	background-size: 100% 100%;
+	text-align: center;
+	font-size: 6vw;
+	height: 100vh;
+}
+body section.jogo h1{
+	padding: 20vw;
+	font-size: 7vw;
+	font-weight: bold;
+	color: #393943;
+}
+body section.jogo img{
+	height: 40vw;
+	padding: 3vw;
+}
+
+body section.fim{
+	/*display: none;*/
+	background: url(../img/screen.jpg);
+	background-size: 100% 100%;
+	height: 100vh;
+	text-align: center;
+	font-size: 7vw;
+	padding: 15vw 10vw 10vw 10vw;
+	box-sizing: border-box;
+	color: #393943;
+}
+body section.fim h1{
+	margin-bottom: 25vw;
+	font-size: 10vw;
+	font-weight: bold;
+}
+body section.ganhou h2{
+	margin-top: 10vw;
+	font-weight: bold;
+}
+body section.fim h3{
+	font-size: 20vw;
+	margin-top: 10vw;
+	font-weight: bold;
+}
+body section.fim h4{
+	margin: 10vw 0 35vw 0;
+	font-weight: bold;
+}
+body section.fim p a{
+	text-decoration: none;
+	color: #86A5AC;
+	background-color: #393943;
+	padding: 5vw;
+	border-radius: 5vw;
+	font-size: 5vw;
+}
