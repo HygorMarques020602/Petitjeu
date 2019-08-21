@@ -11,23 +11,24 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 	<section class="entrada">
-		<h1><span class="kum">K</span>
-			<span class="l">L</span>
-			<span class="i">I</span>
-			<span class="n">N</span>
-			<span class="kdois">K</span>
-			<span class="pontointerrogacao">!</span>
+		<h1>
+      <span>K</span>
+			<span>L</span>
+			<span>I</span>
+			<span>N</span>
+			<span>K</span>
+			<span>!</span>
 		</h1>
 		<ul>
-			<p><span class="number">1-</span> Pronto para jogar Clink?</p>
-			<p><span class="number">2-</span> Neste jogo voce memoriza sons.</p>
-			<p><span class="number">3-</span> Ouça bem as sequencias tocadas.</p>
-			<p><span class="number">4-</span> Apos ouvir barta repeti-las.</p>
-			<p><span class="number">5-</span> Bom jogo!</p>
+			<li>Pronto para jogar Clink?</li>
+			<li>Neste jogo voce memoriza sons.</li>
+			<li>Ouça bem as sequencias tocadas.</li>
+			<li>Apos ouvir basta repeti-las.</li>
+			<li>Bom jogo!</li>
 		</ul>
-		<p class="botao"><a href="#">JOGAR</a></p>
+		<p class="botao">JOGAR</p>
 	</section>
-	<section class="jogo" >
+	<section class="jogo" style="display:none">
 		<h1>MEMORIZE A COMBINAÇÃO:</h1>
 		<ul>
 			<img src="img/red.png">
@@ -36,7 +37,7 @@
 			<img src="img/blue.png">
 		</ul>
 	</section>
-	<section class="fim">
+	<section class="fim" style="display:none">
 		<h1>Você perdeu!</h1>
 		<h2>Pontuação:</h2>
 		<h3>15</h3>
@@ -49,17 +50,42 @@
 <script src="js/shuffle.js"></script>
 <script>
 
+  // Sons
+  som1 = new Audio("sons/som1.mp4");
+  som2 = new Audio("sons/som2.mp4");
+  som3 = new Audio("sons/som3.mp4");
+  som4 = new Audio("sons/som4.mp4");
+
 	$(".jogo ul img:nth-child(1)").on("click", function(){
-	  $(this).attr("src", "img/blueBrilho.png");
+	  $(this).attr("src", "img/redBrilho.png");
+
+	  setTimeout(function(){
+	  	$(".jogo ul img:nth-child(1)").attr("src", "img/red.png")
+	  }, 300);
 	})
+
 	$(".jogo ul img:nth-child(2)").on("click", function(){
-		clickCor($(this), "100%");
+		$(this).attr("src", "img/greenBrilho.png");
+
+	  setTimeout(function(){
+	  	$(".jogo ul img:nth-child(2)").attr("src", "img/green.png")
+	  }, 300);
 	})
+
 	$(".jogo ul img:nth-child(3)").on("click", function(){
-		clickCor($(this), "100%");
+		$(this).attr("src", "img/yellowBrilho.png");
+
+	  setTimeout(function(){
+	  	$(".jogo ul img:nth-child(3)").attr("src", "img/yellow.png")
+	  }, 300);
 	})
+
 	$(".jogo ul img:nth-child(4)").on("click", function(){
-		clickCor($(this), "100%");
+		$(this).attr("src", "img/blueBrilho.png");
+
+	  setTimeout(function(){
+	  	$(".jogo ul img:nth-child(4)").attr("src", "img/blue.png")
+	  }, 300);
 	})
 </script>
 </body>
