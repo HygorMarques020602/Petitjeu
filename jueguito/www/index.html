@@ -51,10 +51,10 @@
 <script>
 
   // Sons
-  som1 = new Audio("sons/som1.mp4");
-  som2 = new Audio("sons/som2.mp4");
-  som3 = new Audio("sons/som3.mp4");
-  som4 = new Audio("sons/som4.mp4");
+  som1 = new Audio("sons/som1.mp3");
+  som2 = new Audio("sons/som2.mp3");
+  som3 = new Audio("sons/som3.mp3");
+  som4 = new Audio("sons/som4.mp3");
 
   $(".entrada .botao").on("click", function(){
     $(".entrada").fadeOut();
@@ -76,7 +76,7 @@
     som1.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(1)").attr("src", "img/red.png")
-	  }, 300);
+	  }, 900);
 	})
 
 	$(".jogo ul img:nth-child(2)").on("click", function(){
@@ -84,7 +84,7 @@
     som2.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(2)").attr("src", "img/green.png")
-	  }, 300);
+	  }, 900);
 	})
 
 	$(".jogo ul img:nth-child(3)").on("click", function(){
@@ -92,7 +92,7 @@
     som3.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(3)").attr("src", "img/yellow.png")
-	  }, 300);
+	  }, 900);
 	})
 
 	$(".jogo ul img:nth-child(4)").on("click", function(){
@@ -100,7 +100,7 @@
     som4.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(4)").attr("src", "img/blue.png")
-	  }, 300);
+	  }, 900);
 	})
 </script>
 </body>
