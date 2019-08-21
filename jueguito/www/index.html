@@ -5,7 +5,7 @@
   <title>Klink</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
-  <meta name="author" content="">                                              
+  <meta name="author" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/main.css">
@@ -30,7 +30,7 @@
 	<section class="jogo" >
 		<h1>MEMORIZE A COMBINAÇÃO:</h1>
 		<ul>
-			<img src="img/red.png" data-brilho1="150%">
+			<img src="img/red.png">
 			<img src="img/green.png">
 			<img src="img/yellow.png">
 			<img src="img/blue.png">
@@ -43,22 +43,14 @@
 		<h4>Que tal tentar novamente?</h4>
 		<p><a href="#">MENU PRINCIPAL</a></p>
 	</section>
-  
+
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/shuffle.js"></script>
 <script>
-	function clickCor(elemento, normal){
 
-		$(elemento).css({
-			filter: "brightness("+$(elemento).data("brilho1")+")"
-		});
-		setTimeout(function(){
-			filter: "brightness("+normal+")"
-		}, 100)
-	}
 	$(".jogo ul img:nth-child(1)").on("click", function(){
-		clickCor($(this), "100%");
+	  $(this).attr("src", "img/blueBrilho.png");
 	})
 	$(".jogo ul img:nth-child(2)").on("click", function(){
 		clickCor($(this), "100%");
