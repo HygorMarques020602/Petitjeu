@@ -1,2 +1,2 @@
 # Petitjeu
-Juguito
+Jueguito
