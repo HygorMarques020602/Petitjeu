@@ -66,59 +66,50 @@ body{
 
 /* Tela Principal */
 .jogo{
-	/*display: none;*/
 	background: url(../img/screen.jpg);
 	background-size: 100% 100%;
 	text-align: center;
-	font-size: 6vw;
 	height: 100vh;
 }
 .jogo h1{
-	padding: 20vw;
-	font-size: 7vw;
+	padding: 10vh 10vw;
+	font-size: 2em;
 	font-weight: bold;
 	color: #393943;
 }
 .jogo img{
 	height: 40vw;
-	padding: 3vw;
+	padding: 2vh 2vw;
 }
 
 /* Tela Final */
 .fim{
-	/*display: none;*/
 	background: url(../img/screen.jpg);
 	background-size: 100% 100%;
-	height: 100vh;
 	text-align: center;
-	font-size: 7vw;
-	padding: 15vw 10vw 10vw 10vw;
-	box-sizing: border-box;
+	font-size: 1.5em;
 	color: #393943;
+	padding: 12.65vh 0;
 }
 .fim h1{
-	margin-bottom: 25vw;
-	font-size: 10vw;
-	font-weight: bold;
+	font-size: 2em;
+	margin-bottom: 15vh;
 }
-.ganhou h2{
-	margin-top: 10vw;
-	font-weight: bold;
+.fim h2{
+	font-size: 1.5em;
+	margin-bottom: 5vh;
 }
 .fim h3{
-	font-size: 20vw;
-	margin-top: 10vw;
-	font-weight: bold;
+	font-size: 4em;
+	margin-bottom: 5vh;
 }
 .fim h4{
-	margin: 10vw 0 35vw 0;
-	font-weight: bold;
+	margin-bottom: 10vh;
 }
 .fim p a{
 	text-decoration: none;
 	color: #86A5AC;
 	background-color: #393943;
-	padding: 5vw;
-	border-radius: 5vw;
-	font-size: 5vw;
+	padding: 5vh 13vw;
+	border-radius: 15px;
 }

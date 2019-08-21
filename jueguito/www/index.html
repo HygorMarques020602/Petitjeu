@@ -28,7 +28,7 @@
 		</ul>
 		<p class="botao">JOGAR</p>
 	</section>
-	<section class="jogo" style="display:none">
+	<section class="jogo" style="display: none">
 		<h1>MEMORIZE A COMBINAÇÃO:</h1>
 		<ul>
 			<img src="img/red.png">
@@ -37,12 +37,12 @@
 			<img src="img/blue.png">
 		</ul>
 	</section>
-	<section class="fim" style="display:none">
+	<section class="fim" style="display: none">
 		<h1>Você perdeu!</h1>
 		<h2>Pontuação:</h2>
 		<h3>15</h3>
 		<h4>Que tal tentar novamente?</h4>
-		<p><a href="#">MENU PRINCIPAL</a></p>
+		<p><a href="index.html">MENU PRINCIPAL</a></p>
 	</section>
 
 
@@ -56,9 +56,24 @@
   som3 = new Audio("sons/som3.mp4");
   som4 = new Audio("sons/som4.mp4");
 
+  $(".entrada .botao").on("click", function(){
+    $(".entrada").fadeOut();
+    $(".jogo").fadeIn();
+
+    setTimeout(function(){
+        $(".jogo ul img:nth-child(1)").attr("src", "img/redBrilho.png");
+        som1.play();
+        setTimeout(function(){
+            $(".jogo ul img:nth-child(1)").attr("src", "img/red.png");
+        },1000)
+        console.log("Funciona");
+    },2000);
+
+  })
+
 	$(".jogo ul img:nth-child(1)").on("click", function(){
 	  $(this).attr("src", "img/redBrilho.png");
-
+    som1.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(1)").attr("src", "img/red.png")
 	  }, 300);
@@ -66,7 +81,7 @@
 
 	$(".jogo ul img:nth-child(2)").on("click", function(){
 		$(this).attr("src", "img/greenBrilho.png");
-
+    som2.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(2)").attr("src", "img/green.png")
 	  }, 300);
@@ -74,7 +89,7 @@
 
 	$(".jogo ul img:nth-child(3)").on("click", function(){
 		$(this).attr("src", "img/yellowBrilho.png");
-
+    som3.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(3)").attr("src", "img/yellow.png")
 	  }, 300);
@@ -82,7 +97,7 @@
 
 	$(".jogo ul img:nth-child(4)").on("click", function(){
 		$(this).attr("src", "img/blueBrilho.png");
-
+    som4.play();
 	  setTimeout(function(){
 	  	$(".jogo ul img:nth-child(4)").attr("src", "img/blue.png")
 	  }, 300);
