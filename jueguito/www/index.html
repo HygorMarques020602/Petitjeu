@@ -12,7 +12,7 @@
 </head>
 	<section class="entrada">
 		<h1>
-      <span>K</span>
+      		<span>K</span>
 			<span>L</span>
 			<span>I</span>
 			<span>N</span>
@@ -20,7 +20,7 @@
 			<span>!</span>
 		</h1>
 		<ul>
-			<li>Pronto para jogar Clink?</li>
+			<li>Pronto para jogar Klink?</li>
 			<li>Neste jogo voce memoriza sons.</li>
 			<li>Ouça bem as sequencias tocadas.</li>
 			<li>Apos ouvir basta repeti-las.</li>
@@ -30,11 +30,12 @@
 	</section>
 	<section class="jogo" style="display: none">
 		<h1>MEMORIZE A COMBINAÇÃO:</h1>
+		<h2>NÍVEL: <span>1</span></h2>
 		<ul>
-			<img src="img/red.png">
-			<img src="img/green.png">
-			<img src="img/yellow.png">
-			<img src="img/blue.png">
+			<img src="img/red.png" data-som="sons/som1.mp3">
+			<img src="img/green.png"data-som="sons/som2.mp3">
+			<img src="img/yellow.png"data-som="sons/som3.mp3">
+			<img src="img/blue.png"data-som="sons/som4.mp3">
 		</ul>
 	</section>
 	<section class="fim" style="display: none">
@@ -44,63 +45,131 @@
 		<h4>Que tal tentar novamente?</h4>
 		<p><a href="index.html">MENU PRINCIPAL</a></p>
 	</section>
-
+	<section class="proximo" style="display: none">
+			<h1>MEMORIZE A COMBINAÇÃO:</h1>
+			<h2>PARABÉNS</h2>
+			<p>PRÓXIMO NÍVEL</p>
+	</section>
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/shuffle.js"></script>
 <script>
+// Sons
+	som1 = new Audio("sons/som1.mp3");
+	som2 = new Audio("sons/som2.mp3");
+	som3 = new Audio("sons/som3.mp3");
+	som4 = new Audio("sons/som4.mp3");
+// Sons Array
+arraySom = ["sons/som1.mp3", "sons/som2.mp3", "sons/som3.mp3", "sons/som4.mp3"];
+// Efeito imagens
+imagemArray = ["img/redBrilho.png", "img/greenBrilho.png", "img/yellowBrilho.png", "img/blueBrilho.png"]
+imagemArray2 = ["img/red.png", "img/green.png", "img/yellow.png", "img/blue.png"]
+//Começo do Jogo 
+$(".entrada .botao").on("click", function(){
+  $(".entrada").fadeOut();
+  $(".jogo").fadeIn();
+fase = 4;
+escolha = [];
+arraySomSorteado = [];
+arrayImagemSorteado = [];
+escolha = [];
+for(i=0; i<fase; i++) {
+	num = Math.floor(Math.random()*4); 
+	arraySomSorteado.push(arraySom[num]);
+	arrayImagemSorteado.push(num);
+} 
+console.log(arraySomSorteado);
+console.log(arrayImagemSorteado);
+num1 = 0;
 
-  // Sons
-  som1 = new Audio("sons/som1.mp3");
-  som2 = new Audio("sons/som2.mp3");
-  som3 = new Audio("sons/som3.mp3");
-  som4 = new Audio("sons/som4.mp3");
+	  for(i=1; i<=fase; i++){
+		setTimeout(function(){
+			let audio = new Audio(arraySomSorteado[num1]);
+			var imagem = arrayImagemSorteado[num1];
+			var nth = imagem+1;
+			console.log(imagem);
+			$(".jogo ul img:nth-child("+nth+")").attr("src", imagemArray[imagem]);
+			setTimeout(function(){
+				$(".jogo ul img:nth-child("+nth+")").attr("src", imagemArray2[imagem]);
+			},500);
+			audio.play();
+			num1++;
+		},i*1500);
+	  }
 
-  $(".entrada .botao").on("click", function(){
-    $(".entrada").fadeOut();
-    $(".jogo").fadeIn();
-
-    setTimeout(function(){
-        $(".jogo ul img:nth-child(1)").attr("src", "img/redBrilho.png");
-        som1.play();
-        setTimeout(function(){
-            $(".jogo ul img:nth-child(1)").attr("src", "img/red.png");
-        },1000)
-    },500);
-
-  })
-
-	$(".jogo ul img:nth-child(1)").on("click", function(){
-	  $(this).attr("src", "img/redBrilho.png");
-    som1.play();
-	  setTimeout(function(){
-	  	$(".jogo ul img:nth-child(1)").attr("src", "img/red.png")
-	  }, 900);
-	})
-
-	$(".jogo ul img:nth-child(2)").on("click", function(){
-		$(this).attr("src", "img/greenBrilho.png");
-    som2.play();
-	  setTimeout(function(){
-	  	$(".jogo ul img:nth-child(2)").attr("src", "img/green.png")
-	  }, 900);
-	})
-
-	$(".jogo ul img:nth-child(3)").on("click", function(){
-		$(this).attr("src", "img/yellowBrilho.png");
-    som3.play();
-	  setTimeout(function(){
-	  	$(".jogo ul img:nth-child(3)").attr("src", "img/yellow.png")
-	  }, 900);
-	})
-
-	$(".jogo ul img:nth-child(4)").on("click", function(){
-		$(this).attr("src", "img/blueBrilho.png");
-    som4.play();
-	  setTimeout(function(){
-	  	$(".jogo ul img:nth-child(4)").attr("src", "img/blue.png")
-	  }, 900);
-	})
+// Botão Som 1 
+$(".jogo ul img:nth-child(1)").on("click", function(){
+  $(this).attr("src", "img/redBrilho.png");
+som1.play();
+  setTimeout(function(){
+  	$(".jogo ul img:nth-child(1)").attr("src", "img/red.png")
+  }, 900);
+  escolha.push('0');
+  	var comp = arrayImagemSorteado.toString();
+	var usuario = escolha.toString();
+	if(usuario==comp){
+		fase++;
+		escolha = [];
+		$(".jogo").fadeOut();
+		$(".proximo").fadeIn();
+	}
+})
+// Botão Som 2
+$(".jogo ul img:nth-child(2)").on("click", function(){
+	$(this).attr("src", "img/greenBrilho.png");
+som2.play();
+  setTimeout(function(){
+  	$(".jogo ul img:nth-child(2)").attr("src", "img/green.png")
+  }, 900);
+  escolha.push('1');
+  var comp = arrayImagemSorteado.toString();
+	var usuario = escolha.toString();
+	if(usuario==comp){
+		fase++;
+		escolha = [];
+		$(".jogo").fadeOut();
+		$(".proximo").fadeIn();
+	}
+})
+// Botão Som 3
+$(".jogo ul img:nth-child(3)").on("click", function(){
+	$(this).attr("src", "img/yellowBrilho.png");
+som3.play();
+  setTimeout(function(){
+  	$(".jogo ul img:nth-child(3)").attr("src", "img/yellow.png")
+  }, 900);
+  escolha.push('2');
+  var comp = arrayImagemSorteado.toString();
+	var usuario = escolha.toString();
+	if(usuario==comp){
+		fase++;
+		escolha = [];
+		$(".jogo").fadeOut();
+		$(".proximo").fadeIn();
+	}
+})
+// Botão Som 4
+$(".jogo ul img:nth-child(4)").on("click", function(){
+	$(this).attr("src", "img/blueBrilho.png");
+som4.play();
+  setTimeout(function(){
+  	$(".jogo ul img:nth-child(4)").attr("src", "img/blue.png")
+  }, 900);
+  escolha.push('3');
+  var comp = arrayImagemSorteado.toString();
+	var usuario = escolha.toString();
+	if(usuario==comp){
+		fase++;
+		escolha = [];
+		$(".jogo").fadeOut();
+		$(".proximo").fadeIn();
+	}
+})
+$(".proximo p").on('click', function(){
+	$(".proximo").fadeOut();
+	$(".jogo").fadeIn();
+});
+})
 </script>
 </body>
 </html>

@@ -72,6 +72,12 @@ body{
 	height: 100vh;
 }
 .jogo h1{
+	padding: 5vh 10vw;
+	font-size: 2em;
+	font-weight: bold;
+	color: #393943;
+}
+.jogo h2{
 	padding: 10vh 10vw;
 	font-size: 2em;
 	font-weight: bold;
@@ -112,4 +118,34 @@ body{
 	background-color: #393943;
 	padding: 5vh 13vw;
 	border-radius: 15px;
+}
+
+/* Tela Entre Níveis */
+.proximo{
+	background: url(../img/screen.jpg);
+	background-size: 100% 100%;
+	text-align: center;
+	height: 100vh;
+}
+.proximo h1{
+	padding: 12vh 10vw;
+	font-size: 2em;
+	font-weight: bold;
+	color: #393943;
+}
+.proximo h2{
+	padding: 10vh 10vw;
+	font-size: 2em;
+	font-weight: bold;
+	color: #393943;
+}
+.proximo p{
+	padding: 5vh 2vw;
+	margin: 0 10vw;
+	margin-top: 10vh;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #86A5AC;
+	background-color: #393943;
+	border-radius: 5vw;
 }
