@@ -54,6 +54,19 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/shuffle.js"></script>
 <script>
+function gerarContador(elemento){
+	return contagem = setInterval(function(){
+   	var tempo = $(elemento).text();
+ 	tempo = parseInt(tempo) -1;
+ 	$(elemento).text(tempo);
+   	if(tempo == 0){
+    	clearInterval(contagem);
+     	$(".jogo").fadeOut();
+     	$(".fim").fadeIn();
+ 	}
+ 	}, 1000);
+ 	return false;
+	}
 // Sons
 	som1 = new Audio("sons/som1.mp3");
 	som2 = new Audio("sons/som2.mp3");
@@ -68,7 +81,7 @@ imagemArray2 = ["img/red.png", "img/green.png", "img/yellow.png", "img/blue.png"
 $(".entrada .botao").on("click", function(){
   $(".entrada").fadeOut();
   $(".jogo").fadeIn();
-fase = 4;
+fase = 1;
 escolha = [];
 arraySomSorteado = [];
 arrayImagemSorteado = [];
@@ -107,12 +120,24 @@ som1.play();
   escolha.push('0');
   	var comp = arrayImagemSorteado.toString();
 	var usuario = escolha.toString();
-	if(usuario==comp){
-		fase++;
-		escolha = [];
-		$(".jogo").fadeOut();
-		$(".proximo").fadeIn();
+	if(escolha.length==arrayImagemSorteado.length){
+		if(usuario==comp){
+			fase++
+			escolha = [];
+			$(".jogo").fadeOut();
+			$(".proximo").fadeIn();
+		}else{
+			$(".jogo").fadeOut();
+			$(".fim h3").text(fase);
+			$(".fim").fadeIn();
+		}
 	}
+	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
+	// 	fase++;
+	// 	escolha = [];
+	// 	$(".jogo").fadeOut();
+	// 	$(".proximo").fadeIn();
+	// }
 })
 // Botão Som 2
 $(".jogo ul img:nth-child(2)").on("click", function(){
@@ -124,12 +149,24 @@ som2.play();
   escolha.push('1');
   var comp = arrayImagemSorteado.toString();
 	var usuario = escolha.toString();
-	if(usuario==comp){
-		fase++;
-		escolha = [];
-		$(".jogo").fadeOut();
-		$(".proximo").fadeIn();
+	if(escolha.length==arrayImagemSorteado.length){
+		if(usuario==comp){
+			fase++
+			escolha = [];
+			$(".jogo").fadeOut();
+			$(".proximo").fadeIn();
+		}else{
+			$(".jogo").fadeOut();
+			$(".fim h3").text(fase);
+			$(".fim").fadeIn();
+		}
 	}
+	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
+	// 	fase++;
+	// 	escolha = [];
+	// 	$(".jogo").fadeOut();
+	// 	$(".proximo").fadeIn();
+	// }
 })
 // Botão Som 3
 $(".jogo ul img:nth-child(3)").on("click", function(){
@@ -141,12 +178,24 @@ som3.play();
   escolha.push('2');
   var comp = arrayImagemSorteado.toString();
 	var usuario = escolha.toString();
-	if(usuario==comp){
-		fase++;
-		escolha = [];
-		$(".jogo").fadeOut();
-		$(".proximo").fadeIn();
+	if(escolha.length==arrayImagemSorteado.length){
+		if(usuario==comp){
+			fase++
+			escolha = [];
+			$(".jogo").fadeOut();
+			$(".proximo").fadeIn();
+		}else{
+			$(".jogo").fadeOut();
+			$(".fim h3").text(fase);
+			$(".fim").fadeIn();
+		}
 	}
+	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
+	// 	fase++;
+	// 	escolha = [];
+	// 	$(".jogo").fadeOut();
+	// 	$(".proximo").fadeIn();
+	// }
 })
 // Botão Som 4
 $(".jogo ul img:nth-child(4)").on("click", function(){
@@ -158,16 +207,54 @@ som4.play();
   escolha.push('3');
   var comp = arrayImagemSorteado.toString();
 	var usuario = escolha.toString();
-	if(usuario==comp){
-		fase++;
-		escolha = [];
-		$(".jogo").fadeOut();
-		$(".proximo").fadeIn();
+	if(escolha.length==arrayImagemSorteado.length){
+		if(usuario==comp){
+			fase++
+			escolha = [];
+			$(".jogo").fadeOut();
+			$(".proximo").fadeIn();
+		}else{
+			$(".jogo").fadeOut();
+			$(".fim h3").text(fase);
+			$(".fim").fadeIn();
+		}
 	}
+	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
+	// 	fase++;
+	// 	escolha = [];
+	// 	$(".jogo").fadeOut();
+	// 	$(".proximo").fadeIn();
+	// }
 })
-$(".proximo p").on('click', function(){
-	$(".proximo").fadeOut();
+
+$(".proximo p").on("click", function(){
+	$(".proximo").hide();
 	$(".jogo").fadeIn();
+
+	escolha = [];
+	$(".jogo h2 span").text(fase);
+
+	num = Math.floor(Math.random()*4); 
+	arraySomSorteado.push(arraySom[num]);
+	arrayImagemSorteado.push(num);
+
+console.log(arraySomSorteado);
+console.log(arrayImagemSorteado);
+		num1=0;
+	  for(i=1; i<=fase; i++){
+		setTimeout(function(){
+			let audio = new Audio(arraySomSorteado[num1]);
+			var imagem = arrayImagemSorteado[num1];
+			var nth = imagem+1;
+			console.log(imagem);
+			$(".jogo ul img:nth-child("+nth+")").attr("src", imagemArray[imagem]);
+			setTimeout(function(){
+				$(".jogo ul img:nth-child("+nth+")").attr("src", imagemArray2[imagem]);
+			},500);
+			audio.play();
+			num1++;
+		},i*1500);
+	  }
 });
 })
 </script>
