@@ -1,5 +1,10 @@
+@font-face{
+	font-family: Impact;
+	src: url(../fontes/impact.ttf);
+}
+
 body{
-	font-family: "impact";
+	font-family: Impact;
 }
 
 /* Tela Inicial */
@@ -39,13 +44,13 @@ body{
 }
 .entrada h1{
 	padding: 5vh 10vw;
-	font-size: 5em;
+	font-size: 4em;
 	font-weight: bold;
 	color: white;
 }
 .entrada ul li{
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 1.1em;
 	color: #393943;
 	margin: 0 10vw;
 	line-height: 8vh;
@@ -96,6 +101,9 @@ body{
 	font-size: 1.5em;
 	color: #393943;
 	padding: 14.7vh 0;
+	box-sizing: border-box;
+	display: block;
+	height: 100vh;
 }
 .fim h1{
 	font-size: 2em;

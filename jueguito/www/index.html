@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <title>Klink</title>
@@ -85,7 +85,6 @@ fase = 1;
 escolha = [];
 arraySomSorteado = [];
 arrayImagemSorteado = [];
-escolha = [];
 for(i=0; i<fase; i++) {
 	num = Math.floor(Math.random()*4); 
 	arraySomSorteado.push(arraySom[num]);
@@ -107,13 +106,16 @@ num1 = 0;
 			},500);
 			audio.play();
 			num1++;
-		},i*1500);
+		},i*2000);
 	  }
 
 // Botão Som 1 
 $(".jogo ul img:nth-child(1)").on("click", function(){
   $(this).attr("src", "img/redBrilho.png");
-som1.play();
+  som1.play();
+  if(som1.currentTime>0){
+	som1.pause();
+  }
   setTimeout(function(){
   	$(".jogo ul img:nth-child(1)").attr("src", "img/red.png")
   }, 900);
@@ -132,17 +134,11 @@ som1.play();
 			$(".fim").fadeIn();
 		}
 	}
-	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
-	// 	fase++;
-	// 	escolha = [];
-	// 	$(".jogo").fadeOut();
-	// 	$(".proximo").fadeIn();
-	// }
 })
 // Botão Som 2
 $(".jogo ul img:nth-child(2)").on("click", function(){
 	$(this).attr("src", "img/greenBrilho.png");
-som2.play();
+	som2.play();
   setTimeout(function(){
   	$(".jogo ul img:nth-child(2)").attr("src", "img/green.png")
   }, 900);
@@ -161,17 +157,11 @@ som2.play();
 			$(".fim").fadeIn();
 		}
 	}
-	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
-	// 	fase++;
-	// 	escolha = [];
-	// 	$(".jogo").fadeOut();
-	// 	$(".proximo").fadeIn();
-	// }
 })
 // Botão Som 3
 $(".jogo ul img:nth-child(3)").on("click", function(){
 	$(this).attr("src", "img/yellowBrilho.png");
-som3.play();
+	som3.play();
   setTimeout(function(){
   	$(".jogo ul img:nth-child(3)").attr("src", "img/yellow.png")
   }, 900);
@@ -190,17 +180,11 @@ som3.play();
 			$(".fim").fadeIn();
 		}
 	}
-	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
-	// 	fase++;
-	// 	escolha = [];
-	// 	$(".jogo").fadeOut();
-	// 	$(".proximo").fadeIn();
-	// }
 })
 // Botão Som 4
 $(".jogo ul img:nth-child(4)").on("click", function(){
 	$(this).attr("src", "img/blueBrilho.png");
-som4.play();
+	som4.play();
   setTimeout(function(){
   	$(".jogo ul img:nth-child(4)").attr("src", "img/blue.png")
   }, 900);
@@ -219,12 +203,6 @@ som4.play();
 			$(".fim").fadeIn();
 		}
 	}
-	// if((usuario==comp)&&(escolha.length==arrayImagemSorteado.length)){
-	// 	fase++;
-	// 	escolha = [];
-	// 	$(".jogo").fadeOut();
-	// 	$(".proximo").fadeIn();
-	// }
 })
 
 $(".proximo p").on("click", function(){
