@@ -113,9 +113,6 @@ num1 = 0;
 $(".jogo ul img:nth-child(1)").on("click", function(){
   $(this).attr("src", "img/redBrilho.png");
   som1.play();
-  if(som1.currentTime>0){
-	som1.pause();
-  }
   setTimeout(function(){
   	$(".jogo ul img:nth-child(1)").attr("src", "img/red.png")
   }, 900);
